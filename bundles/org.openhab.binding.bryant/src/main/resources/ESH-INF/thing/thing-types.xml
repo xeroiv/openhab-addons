@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="bryant"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:thing="https://openhab.org/schemas/thing-description/v1.0.0"
+	xsi:schemaLocation="https://openhab.org/schemas/thing-description/v1.0.0 https://openhab.org/schemas/thing-description-1.0.0.xsd">
+
+	<!-- Thermostat Thing Type -->
+	<thing-type id="thermostat">
+		<label>Thermostat</label>
+		<description>Bryant/Carrier Thermostat compatible with Infinitude proxy server.</description>
+
+		<channels>
+			<channel typeId="temperature" id="temperature"></channel><channel typeId="humidity" id="humidity"></channel>
+			<channel typeId="heatsetpoint" id="heatsetpoint"></channel>
+			<channel typeId="coolsetpoint" id="coolsetpoint"></channel>
+			<channel typeId="mode" id="mode"></channel>
+			<channel typeId="activity" id="activity"></channel>
+			
+		</channels>
+
+		<config-description>
+			<parameter name="host" type="text" required="true">
+				<label>Host</label>
+				<description>Hostname or IP address of the Infinitude Server.</description>
+			</parameter>
+			<parameter name="port" type="integer" required="true">
+				<label>Port</label>
+				<description>Port that the Infinitude Server is listening on.</description></parameter>
+			<parameter name="zone" type="integer" required="true">
+				<label>Zone Number</label>
+				<description>Zone number that you want your thermostat to control.  Choose 1 if you do not have additional zones.</description></parameter>
+			<parameter name="httpPollingInterval" type="integer" required="false">
+				<label>Polling Interval</label>
+				<description>Override the default polling interval. ( 10 seconds )</description>
+				<default>10</default></parameter>
+		</config-description>
+
+	</thing-type>
+
+	<!-- Channel Types-->
+	<channel-type id="temperature">
+		<item-type>String</item-type>
+		<label>Temperature</label>
+		<description>Displays the current temperature for zone 1</description>
+	</channel-type>
+	<channel-type id="humidity">
+		<item-type>String</item-type>
+		<label>Humidity</label>
+		<description>Displays the current humidity for zone 1</description>
+	</channel-type>
+	<channel-type id="heatsetpoint">
+		<item-type>String</item-type>
+		<label>Heat Set Point</label>
+		<description>Displays the current heating set point for zone 1</description>
+	</channel-type>
+	<channel-type id="coolsetpoint">
+		<item-type>String</item-type>
+		<label>Cool Set Point</label>
+		<description>Displays the current cooling set point for zone 1</description>
+	</channel-type>
+	<channel-type id="mode">
+		<item-type>String</item-type>
+		<label>Mode</label>
+		<description>Displays the current mode for zone 1</description>
+	</channel-type>
+	<channel-type id="activity">
+		<item-type>String</item-type>
+		<label>Activity</label>
+		<description>Displays the current activity for zone 1</description>
+	</channel-type>
+
+</thing:thing-descriptions>
